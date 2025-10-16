@@ -4,3 +4,7 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+@theme{
+  --color-hokie: #863f41;
+}
