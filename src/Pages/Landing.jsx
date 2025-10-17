@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Login from "../Components/Login.jsx";
 import GetStarted from "../Components/GetStarted.jsx";
-
+import {motion} from 'framer-motion';
 const Landing = () => {
   const [loginState, setLoginState] = useState(false);
   const [getStartedState, setGetStartedState] = useState(false);
@@ -14,9 +14,6 @@ const Landing = () => {
           Studex
         </h1>
         <div className="flex items-center gap-6 text-sm font-medium">
-          <a href="#" className="hover:text-indigo-600 transition">Home</a>
-          <a href="#" className="hover:text-indigo-600 transition">Listings</a>
-          <a href="#" className="hover:text-indigo-600 transition">About</a>
           <a
             href="#"
             className="hover:text-indigo-600 transition"
@@ -25,7 +22,7 @@ const Landing = () => {
             Login
           </a>
           <button
-            className="px-4 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition"
+            className="px-4 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition hover:cursor-pointer"
             onClick={() => setGetStartedState(true)}
           >
             Get Started
@@ -35,23 +32,31 @@ const Landing = () => {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center text-center px-6 py-20">
-        <h2 className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 mb-4">
+        <motion.h2 className="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 mb-4"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           Buy, Sell, and Connect <br />
           <span className="text-indigo-600">Across Campus</span>
-        </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mb-10">
+        </motion.h2>
+        <motion.p className="text-lg text-gray-600 max-w-2xl mb-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}>
           A safe, simple, and modern marketplace built for Virginia Tech
           students. Whether you’re selling textbooks or finding furniture,
           Studex keeps it all in the Hokie family.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition">
+        </motion.p>
+        <motion.div className="flex flex-wrap justify-center gap-4"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <button className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition hover:cursor-pointer">
             Browse Listings
           </button>
-          <button className="px-6 py-3 border border-indigo-600 text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition">
-            Post an Item
-          </button>
-        </div>
+        </motion.div>
       </section>
 
       {/* Feature Section */}
@@ -99,7 +104,7 @@ const Landing = () => {
           Sign up today and simplify your student marketplace experience.
         </p>
         <button
-          className="px-8 py-3 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition"
+          className="px-8 py-3 bg-white text-indigo-600 font-semibold rounded-full hover:bg-indigo-50 transition hover:cursor-pointer"
           onClick={() => setGetStartedState(true)}
         >
           Get Started Now

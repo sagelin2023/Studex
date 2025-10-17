@@ -1,12 +1,38 @@
+import {useState} from 'react'
+import {supabase} from '../lib/supabase';
+
+
 export default function Login({ onClose, onSwitch }) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
+    
+    const handleLogin = async (e) => {
+        e.preventDefault(); //stops the broswer refreshing the page when submitted
+        setError(null); //clears any previous error messages
+        const {error} = await supabase.auth.signInWithPassword({
+            email, password,
+        });
+        if (!email.endsWith("@vt.edu")) {
+            setError("Please use your @vt.edu email address to log in.");
+            return; 
+    }
+        if (error) {
+            setError(error.message);
+        }
+        else{
+            onClose();
+            console.log("Logged in successfully");
+        }
+    }
   return (
     <div className="flex min-h-screen items-center justify-center bg-transparent font-inter relative">
-      <div className="bg-white shadow-lg rounded-2xl p-10 w-full max-w-md border border-gray-200 relative">
+      <div className="bg-white shadow-lg rounded-2xl p-10 w-full max-w-md border border-gray-200 relative max-sm:mx-5">
         {/* Close button */}
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-400 hover:text-indigo-600 
-             transition-all duration-300 text-l p-2 rounded-full hover:rotate-90"
+             transition-all duration-300 text-l p-2 rounded-full hover:rotate-90 hover:cursor-pointer"
         >
           ✕
         </button>
@@ -18,7 +44,7 @@ export default function Login({ onClose, onSwitch }) {
           Log in with your <span className="font-medium">@vt.edu</span> email
         </p>
 
-        <form className="flex flex-col gap-5">
+        <form onSubmit = {handleLogin} className="flex flex-col gap-5">
           <div>
             <label
               htmlFor="email"
@@ -29,6 +55,8 @@ export default function Login({ onClose, onSwitch }) {
             <input
               id="email"
               type="email"
+              value = {email}
+              onChange = {(e) => setEmail(e.target.value)}
               placeholder="xxx@vt.edu"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-600 focus:outline-none"
               required
@@ -45,6 +73,8 @@ export default function Login({ onClose, onSwitch }) {
             <input
               id="password"
               type="password"
+              value = {password}
+              onChange = {(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-600 focus:outline-none"
               required
@@ -53,12 +83,12 @@ export default function Login({ onClose, onSwitch }) {
 
           <button
             type="submit"
-            className="mt-4 bg-indigo-600 text-white font-semibold rounded-lg py-2 hover:bg-indigo-700 transition"
+            className="mt-4 bg-indigo-600 text-white font-semibold rounded-lg py-2 hover:bg-indigo-700 transition hover:cursor-pointer"
           >
             Log In
           </button>
         </form>
-
+        {error && <p className = "text-red-600 text-sm mt-3 text-center">{error}</p>}
         <p className="text-center text-sm text-gray-500 mt-6">
           Don't have an account?{" "}
           <span
