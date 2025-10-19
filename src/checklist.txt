@@ -1,0 +1,12 @@
+THIS IS THE CHECKLIST FOR THINGS TO GET DONE ON THE PROJECT
+- need creating account to also put you in the login state
+- handle login states
+- figure out getStarted error if a user already has an account in the database
+1. Create Supabase table for listings
+    - implement post listing features
+    - viewing listing features
+    - display features
+
+2. User and Profile System
+
+3. Messaging system
