@@ -5,7 +5,9 @@ import { useAuth } from "../Context/AuthContext";
 const Landing = () => {
 
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user } = useAuth(); //gets the user state from the AuthContext
+  const fullName = user.user_metadata.name;
+  const firstName = fullName.split(" ")[0];//gets the first name
   return (
     <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-800 font-inter relative">
     
@@ -39,7 +41,6 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      {/* Feature Section */}
       <section className="px-8 py-16 bg-white">
         <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">
           Why choose Studex?
@@ -74,12 +75,11 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
+      {/*if the user exists*/}
       {user ? (
       <section className="py-20 text-center bg-indigo-600 text-white">
         <h3 className="text-3xl md:text-4xl font-bold mb-4">
-          Welcome back, Hokie!
+          Welcome back, {firstName}!
         </h3>
         <p className="text-indigo-100 mb-8">
           You’re already part of Studex — manage your listings or check your profile below.

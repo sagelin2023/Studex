@@ -13,8 +13,8 @@ export default function GetStarted({ onClose, onSwitch }) {
     const navigate = useNavigate();
 
     const handleSignUp = async(e) => {
-        e.preventDefault();
-        setError(null);
+        e.preventDefault(); //stops page from refreshing when submitted
+        setError(null); //refreshes any previous error messages
         setCreating(true);
         if (!email.endsWith("@vt.edu")) {
         setError("Only @vt.edu email addresses are allowed.");
@@ -120,7 +120,7 @@ export default function GetStarted({ onClose, onSwitch }) {
                     required
                 />
 
-                {/* Toggle button (eye icon) */}
+                {/* Toggle button */}
                 <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}

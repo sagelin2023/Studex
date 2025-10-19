@@ -7,7 +7,7 @@ export default function Login({ onClose, onSwitch }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false); //for loading states
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     
@@ -15,12 +15,13 @@ export default function Login({ onClose, onSwitch }) {
         e.preventDefault(); //stops the broswer refreshing the page when submitted
         setError(null); //clears any previous error messages
         setLoading(true);
-        
+        //email checking
         if (!email.endsWith("@vt.edu")) {
             setError("Please use your @vt.edu email address to log in.");
             setLoading(false);
             return; 
         }
+        //signs in with an email and password, sets the error if one occurs
         const {error} = await supabase.auth.signInWithPassword({
             email, password,
         });
@@ -91,7 +92,7 @@ export default function Login({ onClose, onSwitch }) {
                     required
                 />
 
-                {/* Toggle button (eye icon) */}
+                {/* Toggle button */}
                 <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}

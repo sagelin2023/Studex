@@ -1,14 +1,14 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Search, Filter, PlusCircle, Bell, User } from "lucide-react";
+import { motion } from "framer-motion"; //import for animations
+import { Search, Filter, PlusCircle, Bell, User } from "lucide-react"; //icons
 import ryan from "../assets/ryan.png";
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 const Marketplace = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); //navigate variable
   return (
     <main className="min-h-screen bg-gray-50 font-inter text-gray-800">
-
+     {/*Market place hero section*/}
       <section className="px-8 py-10 text-center">
         <motion.h2
           className="text-4xl font-bold text-gray-900 mb-4"
@@ -37,10 +37,11 @@ const Marketplace = () => {
           </button>
         </div>
       </section>
-
+        {/*Listings section*/}
       <section className="px-8 pb-16 max-w-6xl mx-auto">
         <h3 className="text-2xl font-semibold mb-6 text-gray-900">Recent Listings</h3>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/*For each listing, creates a card for it*/}
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
@@ -59,6 +60,7 @@ const Marketplace = () => {
               </div>
             </motion.div>
           ))}
+        {/*post listing button for smaller devices*/}
         </div>
         <button className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition hover:cursor-pointer sm:hidden">
           <PlusCircle size={32} />
