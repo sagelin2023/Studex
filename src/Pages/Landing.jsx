@@ -115,7 +115,6 @@ const Landing = () => {
       <footer className="py-8 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} Studex — All Rights Reserved.
       </footer>
-
     </main>
   );
 };
