@@ -6,8 +6,8 @@ const Landing = () => {
 
   const navigate = useNavigate();
   const { user } = useAuth(); //gets the user state from the AuthContext
-  const fullName = user.user_metadata.name;
-  const firstName = fullName.split(" ")[0];//gets the first name
+  const fullName = user?.user_metadata?.name || "";
+  const firstName = fullName.split(" ")[0] || "";//gets the first name
   return (
     <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-800 font-inter relative">
     

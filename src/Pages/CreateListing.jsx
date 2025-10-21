@@ -20,7 +20,6 @@ const CreateListing = () => {
   //posting states
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
 
   // Handle image selection
   const handleImageChange = (e) => {
@@ -54,7 +53,7 @@ const CreateListing = () => {
     setLoading(true); //loading is true 
 
     try {
-
+    
       let image_url = null;
       if (imageFile) {
         image_url = await uploadImage(imageFile); //if there is an image, then the image gets put into image_url
@@ -108,7 +107,7 @@ const CreateListing = () => {
               onChange={(e) => setTitle(e.target.value)}
               required
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-indigo-600 focus:outline-none"
-              placeholder="Ex: iClicker 2, dorm lamp, Hokie hoodie..."
+              placeholder="Ex: iClicker, dorm lamp, Hokie hoodie..."
             />
           </div>
 
