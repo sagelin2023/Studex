@@ -3,9 +3,9 @@ General:
 - need creating account to also put you in the login state
 - figure out getStarted error if a user already has an account in the database
 1. Configure listings
-    - make the supabase table called listings with all attributes
-    - create the ItemCard component that creates the item card with the table information
-    - map the ItemCards into the marketplace
+    - make the supabase table called listings with all attributes(done)
+    - create the ItemCard component that creates the item card with the table information(done)
+    - map the ItemCards into the marketplace(done)
     - create the post listing component so that it inserts information into the table
     - import the post listing into the marketplace
     - create the Item component for when a user clicks on the item,

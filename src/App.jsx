@@ -9,6 +9,7 @@ import Login from "./Components/Login";
 import GetStarted from "./Components/GetStarted";
 import Messages from "./Pages/Messages";
 import Saved from "./Pages/Saved";
+import CreateListing from "./Pages/CreateListing";
 
 function App() {
   //States for the login and getStarted modal
@@ -29,6 +30,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/messages" element={<Messages />}/>
           <Route path="/saved" element={<Saved />}/>
+          <Route path="/post-listing" element = {<CreateListing />}/>
         </Routes>
         {/*if user clicks login button*/}
         {loginState && (

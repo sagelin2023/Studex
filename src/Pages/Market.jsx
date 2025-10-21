@@ -4,11 +4,13 @@ import { Search, Filter, PlusCircle } from "lucide-react"; // icons
 import { supabase } from "../lib/supabase";
 import ItemCard from "../Components/ItemCard";
 import ItemDetails from "../Components/ItemDetails";
+import { useNavigate } from "react-router-dom";
 
 const Marketplace = () => {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -88,7 +90,7 @@ const Marketplace = () => {
           )}
 
           {/* Post Listing Button (Mobile) */}
-          <button className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition hover:cursor-pointer sm:hidden">
+          <button onClick = {() => navigate("/post-listing")} className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition hover:cursor-pointer sm:hidden">
             <PlusCircle size={32} />
           </button>
         </section>
@@ -112,3 +114,4 @@ const Marketplace = () => {
 };
 
 export default Marketplace;
+

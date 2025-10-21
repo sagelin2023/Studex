@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import ryan from "../assets/ryan.png";
 
 export default function ItemDetails({ item, onClose }) {
+    const [saved, setSaved] = useState(false);
   if (!item) return null;
 
   return (
@@ -29,7 +31,7 @@ export default function ItemDetails({ item, onClose }) {
         className="relative bg-white rounded-2xl shadow-lg w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 max-h-[90vh] overflow-y-auto"
       >
         <img
-          src={item.image_url}
+          src={item.image_url?item.image_url : ryan}
           alt={item.title}
           className="w-full h-80 object-cover rounded-t-2xl"
         />
