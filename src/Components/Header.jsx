@@ -76,7 +76,7 @@ const Header = ({ setLoginState, setGetStartedState }) => {
             {/*handles drop down for notifications*/}
             <div className="relative" ref={notifRef}>
               <Bell
-                className="hover:text-indigo-600 hover:cursor-pointer transition-colors"
+                className="hover:text-indigo-600 cursor-pointer transition-colors"
                 onClick={() => {
                   setNotificationOpen((prev) => !prev);
                   setMenuOpen(false); 
@@ -93,7 +93,7 @@ const Header = ({ setLoginState, setGetStartedState }) => {
             {/*handles dropdown for profile*/}
             <div className="relative" ref={profileRef}>
               <User
-                className="hover:text-indigo-600 hover:cursor-pointer transition-colors"
+                className="hover:text-indigo-600 cursor-pointer transition-colors"
                 onClick={() => {
                   setMenuOpen((prev) => !prev);
                   setNotificationOpen(false); 
@@ -160,7 +160,7 @@ const Header = ({ setLoginState, setGetStartedState }) => {
               Login
             </a>
             <button
-              className="px-4 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition hover:cursor-pointer"
+              className="px-4 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition cursor-pointer"
               onClick={() => setGetStartedState(true)}
             >
               Get Started

@@ -35,7 +35,7 @@ const Landing = () => {
         animate={{ opacity: 1, scale: 1}}
         transition={{ duration: 0.6, delay: 0.6}}
         >
-          <button className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition hover:cursor-pointer" onClick = {() => navigate("/marketplace")}>
+          <button className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition cursor-pointer" onClick = {() => navigate("/marketplace")}>
             Browse Listings
           </button>
         </motion.div>
@@ -87,7 +87,7 @@ const Landing = () => {
         <div className="flex justify-center gap-4">
         
           <button
-            className="px-8 py-3 bg-transparent border border-white text-white font-semibold rounded-full hover:cursor-pointer hover:bg-white/10 transition"
+            className="px-8 py-3 bg-transparent border border-white text-white font-semibold rounded-full cursor-pointer hover:bg-white/10 transition"
             onClick={() => navigate("/profile")}
           >
             View Profile
