@@ -17,7 +17,7 @@ A Virginia Tech student marketplace
 ## Overview
 
 **Studex** is a student-first marketplace built for the Virginia Tech community. It supports:
-- Secure user authentication (email/password + OAuth if enabled)
+- Secure user authentication (email/password)
 - Listings with images, categories, and pricing
 - Real-time data storage and retrieval with Supabase
 - Clean, fast UI powered by **React + Vite** and **Tailwind CSS**
@@ -28,7 +28,7 @@ A Virginia Tech student marketplace
 
 - **Frontend:** React + Vite
 - **Styling:** Tailwind CSS
-- **Backend-as-a-Service:** Supabase (Postgres, Auth, Storage, Row-Level Security)
+- **Backend:** Supabase (User Auth, Data Storage, Row-Level Security)
 
 ---
 
